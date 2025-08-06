@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+<meta name="theme-color" content="#0f62fe">
+    <meta charset="UTF-8">
+    <title>🏆 Campeonato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6 font-sans">
+    <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md text-center">
+        <h1 class="text-3xl font-bold text-blue-700 mb-4">🏆 Campeonato de Futebol</h1>
+
+        <p class="text-sm text-gray-600 mb-6">Bem-vindo, {{ session['usuario'] }}</p>
+
+        <div class="flex flex-col gap-3">
+            <a href="/equipas" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">👥 Gestão de Equipas</a>
+            <a href="/tabelas" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">📊 Ver Tabela</a>
+            <a href="/jogos" class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition">📋 Ver Jogos</a>
+            <a href="/calendario" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">🗓️ Ver Calendário</a>
+            <a href="/add" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition">➕ Adicionar Jogo</a>
+            <a href="/estatisticas" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">📈 Ver Estatísticas</a>
+            <a href="/graficos" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">📉 Ver Gráficos</a>
+            <a href="/logout" class="text-red-600 hover:underline text-sm mt-2">Sair</a>
+        </div>
+    </div>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/service-worker.js')
+      .then(function() {
+        console.log("✔️ Service Worker registrado com sucesso!");
+      })
+      .catch(function(error) {
+        console.log("❌ Erro ao registrar o Service Worker:", error);
+      });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>📋 Lista de Equipas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans p-8">
+    <div class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6">
+        <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">📋 Lista de Equipas</h1>
+
+        {% if equipas %}
+            <ul class="mb-6 list-disc pl-6 text-gray-800 space-y-1">
+                {% for equipa in equipas %}
+                    <li>{{ equipa.nome }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-gray-500 italic text-center mb-6">Nenhuma equipa registada.</p>
+        {% endif %}
+
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a href="/adicionar_equipe" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                ➕ Adicionar Nova Equipa
+            </a>
+            <a href="/" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                ← Voltar ao Início
+            </a>
+        </div>
+    </div>
+</body>
+</html>

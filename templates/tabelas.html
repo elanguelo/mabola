@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Tabela de Classificação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen p-6">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-2xl p-6">
+        <h1 class="text-3xl font-bold text-blue-700 text-center mb-6">📊 Tabela de Classificação</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-sm rounded">
+                <thead class="bg-blue-600 text-white">
+                    <tr>
+                        <th class="py-2 px-4">#</th>
+                        <th class="py-2 px-4">Time</th>
+                        <th class="py-2 px-4">Jogos</th>
+                        <th class="py-2 px-4">Vitórias</th>
+                        <th class="py-2 px-4">Empates</th>
+                        <th class="py-2 px-4">Derrotas</th>
+                        <th class="py-2 px-4">Golos Marcados</th>
+                        <th class="py-2 px-4">Golos Sofridos</th>
+                        <th class="py-2 px-4">Diferença</th>
+                        <th class="py-2 px-4">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {% for item in classificacao %}
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="py-2 px-4">{{ loop.index }}</td>
+                            <td class="py-2 px-4">{{ item[0] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['Jogos'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['V'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['E'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['D'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['GM'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['GS'] }}</td>
+                            <td class="py-2 px-4">{{ item[1]['GM'] - item[1]['GS'] }}</td>
+                            <td class="py-2 px-4 font-bold text-blue-700">{{ item[1]['Pontos'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-6 space-x-4">
+            <a href="/" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">← Voltar ao Início</a>
+            <a href="/exportar_tabela_pdf" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">Exportar Tabela em PDF</a>
+        </div>
+    </div>
+</body>
+</html>
