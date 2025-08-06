@@ -1,0 +1,28 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor configs
+.vscode/
+.idea/
+
+# Flask instance folders
+instance/
+.env
+
+# Banco de dados local
+db.json
+
+# Logs e arquivos do sistema
+*.log
+.DS_Store
+
+# PyInstaller (se um dia compilares o projeto)
+dist/
+build/
+*.spec
+
+# Ambientes virtuais
+venv/
+.env/
